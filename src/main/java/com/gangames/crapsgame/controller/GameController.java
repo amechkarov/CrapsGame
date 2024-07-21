@@ -1,6 +1,8 @@
 package com.gangames.crapsgame.controller;
 
 import com.gangames.crapsgame.exceptions.GameTypeIsNotSupportedException;
+import com.gangames.crapsgame.exceptions.StakeOutOfBoundsException;
+import com.gangames.crapsgame.exceptions.UnexpectedRoundsException;
 import com.gangames.crapsgame.models.Game;
 import com.gangames.crapsgame.models.dto.GameDto;
 import com.gangames.crapsgame.service.contracts.GameService;
@@ -27,13 +29,15 @@ public class GameController {
         this.gameMapper = gameMapper;
     }
 
-    @PostMapping
+    @PostMapping("/play")
     public Game playGame(@RequestBody GameDto gameDto){
         try {
             Game game = gameMapper.fromDto(gameDto);
             return gameService.play(game);
         }catch (GameTypeIsNotSupportedException e){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
+        }catch (StakeOutOfBoundsException | UnexpectedRoundsException e){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
         }
     }
 }
