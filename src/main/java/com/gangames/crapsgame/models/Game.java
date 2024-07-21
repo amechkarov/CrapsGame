@@ -2,19 +2,15 @@ package com.gangames.crapsgame.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.gangames.crapsgame.exceptions.GameTypeIsNotSupportedException;
+import com.gangames.crapsgame.exceptions.StakeOutOfBoundsException;
+import com.gangames.crapsgame.exceptions.UnexpectedRoundsException;
 import com.gangames.crapsgame.models.enums.GameTypes;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Map;
 
 import static com.gangames.crapsgame.utils.EnumValuesValidator.isValidEnum;
 
 public class Game {
-
-    private final String stakeException = String.format("Stake can not be less than %d and more than %d",1,Integer.MAX_VALUE);
-
-    private final String roundsException = "Rounds can not be negative number!";
 
     private GameTypes type;
 
@@ -44,7 +40,7 @@ public class Game {
 
     public void setStake(double stake) {
         if(stake<1 || stake > Integer.MAX_VALUE){
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,stakeException);
+            throw new StakeOutOfBoundsException();
         }
         this.stake = stake;
     }
@@ -57,7 +53,7 @@ public class Game {
         if (rounds==null){
             rounds = 1;
         }else if(rounds<1){
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,roundsException);
+            throw new UnexpectedRoundsException();
         }
         this.rounds = rounds;
     }
