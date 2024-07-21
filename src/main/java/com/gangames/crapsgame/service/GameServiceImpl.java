@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
+import static com.gangames.crapsgame.utils.Formatters.roundToTwoDecimalPlaces;
+
 @Service
 public class GameServiceImpl implements GameService {
 
@@ -25,14 +27,29 @@ public class GameServiceImpl implements GameService {
 
     @Override
     public Game play(Game game) {
-        int rounds = game.getRounds();
-        double totalWin = 0;
         Map<String, Number> outcome = game.getOutcome();
         rollsAndTotals = game.getRollsAndTotals();
+        double totalWin = calculateTotalWin(game);
+
+        outcome.put("sumOfWins", totalWin);
+
+        if (game.getRounds() > 1) {
+            double totalStakes = game.getStake() * game.getRounds();
+            double rtp = totalWin / totalStakes;
+            outcome.put("sumOfStakes", totalStakes);
+            outcome.put("returnToPlayer", roundToTwoDecimalPlaces(rtp));
+        }
+        rollIndex=0;
+        return game;
+    }
+
+    private double calculateTotalWin(Game game){
+        int rounds = game.getRounds();
+        double totalWin = 0;
 
         while (rounds > 0) {
             int totalRoll = randomProvider.roll();
-            boolean playerWon = playerWin(totalRoll);
+            boolean playerWon = playerWins(totalRoll);
 
             if (playerWon && game.getRounds() == 1) {
                 totalWin += game.getStake();
@@ -41,19 +58,11 @@ public class GameServiceImpl implements GameService {
             }
             rounds--;
         }
-        outcome.put("sumOfWins", totalWin);
 
-        if (game.getRounds() > 1) {
-            double totalStakes = game.getStake() * game.getRounds();
-            double rtp = totalWin / totalStakes;
-            outcome.put("sumOfStakes", totalStakes);
-            outcome.put("returnToPlayer", rtp);
-        }
-        rollIndex=0;
-        return game;
+        return roundToTwoDecimalPlaces(totalWin);
     }
 
-    private boolean playerWin(int totalRoll) {
+    private boolean playerWins(int totalRoll) {
         rollIndex++;
         rollsAndTotals.put(rollIndex,totalRoll);
         if (totalRoll == 7 || totalRoll == 11) {
