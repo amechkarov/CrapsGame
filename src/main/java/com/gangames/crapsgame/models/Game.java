@@ -9,6 +9,7 @@ import com.gangames.crapsgame.models.enums.GameTypes;
 import java.util.Map;
 
 import static com.gangames.crapsgame.utils.EnumValuesValidator.isValidEnum;
+import static com.gangames.crapsgame.utils.Formatters.*;
 
 public class Game {
 
@@ -39,10 +40,10 @@ public class Game {
     }
 
     public void setStake(double stake) {
-        if(stake<1 || stake > Integer.MAX_VALUE){
+        if(stake<=0 || stake > Integer.MAX_VALUE || hasMoreDecimalPlaces(stake,2)){
             throw new StakeOutOfBoundsException();
         }
-        this.stake = stake;
+        this.stake = roundToTwoDecimalPlaces(stake);
     }
 
     public Integer getRounds() {

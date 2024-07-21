@@ -114,11 +114,11 @@ public class CrapsGameServiceTests {
         // Act
         Game result = gameService.play(game);
         double totalStakes = stake*rounds;
-        double totalWin = 200.0;
+        double totalWin = 200.00;
         double rtp = totalWin / totalStakes;
 
         // Assert
-        assertEquals(200.0, result.getOutcome().get("sumOfWins"));
+        assertEquals(200.00, result.getOutcome().get("sumOfWins"));
         assertEquals(totalStakes, result.getOutcome().get("sumOfStakes"));
         assertEquals(rtp, result.getOutcome().get("returnToPlayer"));
 
