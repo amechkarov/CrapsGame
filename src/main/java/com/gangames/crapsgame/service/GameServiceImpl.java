@@ -12,7 +12,6 @@ import java.util.Map;
 public class GameServiceImpl implements GameService {
 
     private final RandomProvider randomProvider;
-    private Map<String, Number> outcome;
 
     private Map<Integer,Integer> rollsAndTotals;
 
@@ -28,13 +27,13 @@ public class GameServiceImpl implements GameService {
     public Game play(Game game) {
         int rounds = game.getRounds();
         double totalWin = 0;
-        int totalRoll = 0;
-        outcome = game.getOutcome();
+        Map<String, Number> outcome = game.getOutcome();
         rollsAndTotals = game.getRollsAndTotals();
 
         while (rounds > 0) {
-            totalRoll = randomProvider.roll();
+            int totalRoll = randomProvider.roll();
             boolean playerWon = playerWin(totalRoll);
+
             if (playerWon && game.getRounds() == 1) {
                 totalWin += game.getStake();
             } else if (playerWon && game.getRounds() > 1) {
