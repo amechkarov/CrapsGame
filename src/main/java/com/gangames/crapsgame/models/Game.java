@@ -7,16 +7,16 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Map;
-import java.util.Optional;
 
 import static com.gangames.crapsgame.utils.EnumValuesValidator.isValidEnum;
 
 public class Game {
 
-    private final String stakeException = String.format("Stake can not be less than %d and more than %f",1,Double.MAX_VALUE);
+    private final String stakeException = String.format("Stake can not be less than %d and more than %d",1,Integer.MAX_VALUE);
+
     private final String roundsException = "Rounds can not be negative number!";
 
-    GameTypes type;
+    private GameTypes type;
 
     private double stake;
 
