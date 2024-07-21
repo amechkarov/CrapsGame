@@ -1,4 +1,4 @@
-package com.gangames.CrapsGame;
+package com.gangames.crapsgame;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package com.gangames.CrapsGame;
+package com.gangames.crapsgame;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
