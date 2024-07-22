@@ -20,5 +20,5 @@
 - ### Game model
   ##### This is the main object used and it has limitations in setters.
 - ### GameService
-  ##### Controls the logic with the support for RandomProvider which has **roll()**  method for random dice combination generation
-  ##### Based on the rounds provided the **outcome** of the game may consist different information
+  ##### 1. Controls the logic with the support of RandomProvider which has a **roll()**  method for random dice combination generation
+  ##### 2. Based on the rounds provided the **outcome** of the game may consist different information
