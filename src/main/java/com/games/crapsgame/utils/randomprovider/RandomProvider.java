@@ -1,4 +1,4 @@
-package com.gangames.crapsgame.utils.randomprovider;
+package com.games.crapsgame.utils.randomprovider;
 
 public interface RandomProvider {
     int roll();

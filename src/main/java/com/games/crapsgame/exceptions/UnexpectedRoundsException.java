@@ -1,4 +1,4 @@
-package com.gangames.crapsgame.exceptions;
+package com.games.crapsgame.exceptions;
 
 public class UnexpectedRoundsException extends RuntimeException{
 

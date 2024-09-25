@@ -1,14 +1,14 @@
-package com.gangames.crapsgame.service;
+package com.games.crapsgame.service;
 
-import com.gangames.crapsgame.models.Game;
-import com.gangames.crapsgame.service.contracts.GameService;
-import com.gangames.crapsgame.utils.randomprovider.RandomProvider;
+import com.games.crapsgame.models.Game;
+import com.games.crapsgame.service.contracts.GameService;
+import com.games.crapsgame.utils.randomprovider.RandomProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
-import static com.gangames.crapsgame.utils.Formatters.roundToTwoDecimalPlaces;
+import static com.games.crapsgame.utils.Formatters.roundToTwoDecimalPlaces;
 
 @Service
 public class GameServiceImpl implements GameService {

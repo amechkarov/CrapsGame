@@ -1,6 +1,6 @@
-package com.gangames.crapsgame.helpers;
+package com.games.crapsgame.helpers;
 
-import com.gangames.crapsgame.models.Game;
+import com.games.crapsgame.models.Game;
 
 import java.util.HashMap;
 
