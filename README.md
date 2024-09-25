@@ -2,6 +2,9 @@
    This project represents a server which can be used to play the so called Craps game
    and perform minor statistical analysis on the outcomes of long term play.
 
+## DOCKER
+This project can be ran through docker as well with command "docker compose up --build" from the command prompt opened from the project's folder.
+
 ## Components
 - ### GameController
   ##### Consists a single enpoint which supports both single round and multiple rounds play
