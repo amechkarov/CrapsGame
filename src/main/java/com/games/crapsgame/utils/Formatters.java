@@ -1,4 +1,4 @@
-package com.gangames.crapsgame.utils;
+package com.games.crapsgame.utils;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;

@@ -1,14 +1,14 @@
-package com.gangames.crapsgame.service;
+package com.games.crapsgame.service;
 
-import com.gangames.crapsgame.models.Game;
-import com.gangames.crapsgame.utils.randomprovider.RandomProvider;
+import com.games.crapsgame.models.Game;
+import com.games.crapsgame.utils.randomprovider.RandomProvider;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import static com.gangames.crapsgame.helpers.TestHelpers.createGame;
+import static com.games.crapsgame.helpers.TestHelpers.createGame;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 

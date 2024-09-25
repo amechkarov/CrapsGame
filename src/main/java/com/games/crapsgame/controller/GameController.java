@@ -1,18 +1,18 @@
-package com.gangames.crapsgame.controller;
+package com.games.crapsgame.controller;
 
-import com.gangames.crapsgame.exceptions.GameTypeIsNotSupportedException;
-import com.gangames.crapsgame.exceptions.StakeOutOfBoundsException;
-import com.gangames.crapsgame.exceptions.UnexpectedRoundsException;
-import com.gangames.crapsgame.models.Game;
-import com.gangames.crapsgame.models.dto.GameDto;
-import com.gangames.crapsgame.service.contracts.GameService;
+import com.games.crapsgame.exceptions.GameTypeIsNotSupportedException;
+import com.games.crapsgame.exceptions.StakeOutOfBoundsException;
+import com.games.crapsgame.models.dto.GameDto;
+import com.games.crapsgame.service.contracts.GameService;
+import com.games.crapsgame.utils.GameMapper;
+import com.games.crapsgame.exceptions.UnexpectedRoundsException;
+import com.games.crapsgame.models.Game;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.gangames.crapsgame.utils.GameMapper;
 import org.springframework.web.server.ResponseStatusException;
 
 @RestController

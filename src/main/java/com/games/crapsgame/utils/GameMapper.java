@@ -1,13 +1,10 @@
-package com.gangames.crapsgame.utils;
+package com.games.crapsgame.utils;
 
-import com.gangames.crapsgame.exceptions.GameTypeIsNotSupportedException;
-import com.gangames.crapsgame.models.Game;
-import com.gangames.crapsgame.models.dto.GameDto;
-import com.gangames.crapsgame.models.enums.GameTypes;
+import com.games.crapsgame.models.Game;
+import com.games.crapsgame.models.dto.GameDto;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
-import java.util.Map;
 
 @Component
 public class GameMapper {

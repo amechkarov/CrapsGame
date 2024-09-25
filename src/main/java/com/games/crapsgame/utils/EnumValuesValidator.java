@@ -1,4 +1,4 @@
-package com.gangames.crapsgame.utils;
+package com.games.crapsgame.utils;
 
 public class EnumValuesValidator {
 

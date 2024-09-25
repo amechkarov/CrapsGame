@@ -1,15 +1,14 @@
-package com.gangames.crapsgame.models;
+package com.games.crapsgame.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.gangames.crapsgame.exceptions.GameTypeIsNotSupportedException;
-import com.gangames.crapsgame.exceptions.StakeOutOfBoundsException;
-import com.gangames.crapsgame.exceptions.UnexpectedRoundsException;
-import com.gangames.crapsgame.models.enums.GameTypes;
+import com.games.crapsgame.exceptions.GameTypeIsNotSupportedException;
+import com.games.crapsgame.exceptions.StakeOutOfBoundsException;
+import com.games.crapsgame.exceptions.UnexpectedRoundsException;
+import com.games.crapsgame.models.enums.GameTypes;
+import com.games.crapsgame.utils.EnumValuesValidator;
+import com.games.crapsgame.utils.Formatters;
 
 import java.util.Map;
-
-import static com.gangames.crapsgame.utils.EnumValuesValidator.isValidEnum;
-import static com.gangames.crapsgame.utils.Formatters.*;
 
 public class Game {
 
@@ -29,7 +28,7 @@ public class Game {
     }
 
     public void setType(String type) {
-        if(!isValidEnum(GameTypes.class, type)){
+        if(!EnumValuesValidator.isValidEnum(GameTypes.class, type)){
             throw new GameTypeIsNotSupportedException();
         }
         this.type = GameTypes.valueOf(type);
@@ -40,10 +39,10 @@ public class Game {
     }
 
     public void setStake(double stake) {
-        if(stake<=0 || stake > Integer.MAX_VALUE || hasMoreDecimalPlaces(stake,2)){
+        if(stake<=0 || stake > Integer.MAX_VALUE || Formatters.hasMoreDecimalPlaces(stake,2)){
             throw new StakeOutOfBoundsException();
         }
-        this.stake = roundToTwoDecimalPlaces(stake);
+        this.stake = Formatters.roundToTwoDecimalPlaces(stake);
     }
 
     public Integer getRounds() {

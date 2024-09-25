@@ -1,4 +1,4 @@
-package com.gangames.crapsgame.models.dto;
+package com.games.crapsgame.models.dto;
 
 public class GameDto {
 
